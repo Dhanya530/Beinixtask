@@ -1,0 +1,10 @@
+<div class="container-fluid g-0">
+  <app-header (sideBarToggle)="sideNavStatus=$event"></app-header>
+  <main>
+    <app-sidebar [ngClass]="{'app-side-nav-open':sideNavStatus}" [sideNavStatus]="sideNavStatus" class="black-border"></app-sidebar>
+    <div class="display-area p-3" [ngClass]="{'display-area-shrink':sideNavStatus}">
+      <router-outlet></router-outlet>
+        </div>
+  </main>
+  
+</div>

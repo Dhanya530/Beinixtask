@@ -1,0 +1,67 @@
+<div class="container">
+  <div id="one">
+    <mat-card class="card mat-card">
+      <div class="box">
+        <div class="row">
+          <div class="cell">
+            <h6 class="heading">Page Views</h6>
+            <h2 class="sub-head">520000</h2>
+          </div>
+          <div class="cell">
+            <img class="image" src="../../../assets/stock.png" />
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div id="two">
+    <mat-card class="card mat-cards">
+      <div class="box">
+        <div class="row">
+          <div class="cell">
+            <h6 class="heading">Clicks</h6>
+            <h2 class="sub-head">62200</h2>
+          </div>
+          <div class="cell">
+            <img class="image" src="../../../assets/stock.png" />
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="container">
+  <div id="one">
+    <mat-card class="card mat-card-table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="pages">
+          <th mat-header-cell *matHeaderCellDef>Pages</th>
+          <td mat-cell *matCellDef="let element">{{ element.pages }}</td>
+        </ng-container>
+        <ng-container matColumnDef="clicks">
+          <th mat-header-cell *matHeaderCellDef>Clicks</th>
+          <td mat-cell *matCellDef="let element">{{ element.clicks }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card>
+  </div>
+  <div id="two">
+    <mat-card class="card mat-graph">
+      <!-- app.component.html -->
+      <mat-tab-group (selectedIndexChange)="onTabChanged($event)">
+        <mat-tab label="Pages"></mat-tab>
+        <mat-tab label="Clicks"></mat-tab>
+      </mat-tab-group>
+      <div *ngIf="activeTabIndex === 0">
+        <app-chart></app-chart>
+      </div>
+      <div *ngIf="activeTabIndex === 1">
+        <app-chart1></app-chart1>
+      </div>
+    </mat-card>
+  </div>
+</div>
