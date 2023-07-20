@@ -17,6 +17,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './Components/chart/chart.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { Chart1Component } from './Components/chart1/chart1.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -49,7 +50,9 @@ export function highchartsModules() {
     FormsModule
   ],
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }],
+    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules  },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
